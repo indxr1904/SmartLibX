@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* REMOVE all your previous CSS — it was breaking layout */
+
+/* Reset Tailwind layers */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+}
+
+/* DO NOT STYLE #root — Tailwind handles layout */

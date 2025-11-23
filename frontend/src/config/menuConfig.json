@@ -1,0 +1,53 @@
+{
+  "admin": [
+    {
+      "label": "Dashboard",
+      "icon": "pi pi-crown",
+      "route": "/admin/dashboard"
+    },
+    {
+      "label": "User Management",
+      "icon": "pi pi-cog",
+      "route": "/admin/usermanagement"
+    },
+    {
+      "label": "Book Management",
+      "icon": "pi pi-warehouse",
+      "route": "/admin/bookmanagement"
+    },
+    {
+      "label": "Book Assignment",
+      "icon": "pi pi-briefcase",
+      "route": "/admin/bookassignment"
+    }
+  ],
+  "librarian": [
+    {
+      "label": "Dashboard",
+      "icon": "pi pi-crown",
+      "route": "/admin/dashboard"
+    },
+    {
+      "label": "User Management",
+      "icon": "pi pi-cog",
+      "route": "/admin/usermanagement"
+    },
+    {
+      "label": "Book Management",
+      "icon": "pi pi-warehouse",
+      "route": "/admin/bookmanagement"
+    },
+    {
+      "label": "Book Assignment",
+      "icon": "pi pi-briefcase",
+      "route": "/admin/bookassignment"
+    }
+  ],
+  "student": [
+    {
+      "label": "Dashboard",
+      "icon": "pi pi-plus",
+      "route": "/student"
+    }
+  ]
+}
