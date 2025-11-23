@@ -128,13 +128,19 @@ npm run logs
 ## Install New Backend Dependencies
 
 ```bash
+# Install a new backend dependency
 npm install <package-name>
+
+# Start the backend server
 npm start
 ```
 
 ## Install New Frontend Dependencies
 ```bash
+# Install a new frontend dependency
 npm install <package-name>
+
+# Start the development server (Vite)
 npm run dev
 ```
 
@@ -142,9 +148,16 @@ npm run dev
 
 **Backend (.env)**
 ```bash
+# MongoDB connection string (Local or Atlas)
 MONGO_URI=mongodb://localhost:27017/smartlibx
+
+# Secret key used to sign JWT authentication tokens
 JWT_SECRET=your_jwt_secret
+
+# Port on which the backend server will run
 PORT=3000
+
+# JWT token expiration duration
 TOKEN_EXPIRE=7d
 ```
 ## 📖 API Documentation
@@ -152,23 +165,22 @@ TOKEN_EXPIRE=7d
 
 ## 🔐 Auth APIs
 ```bash
-POST /api/v1/auth/register
 # Create user (Admin role only)
+POST /api/v1/auth/register
 
-POST /api/v1/auth/login
 # Login + JWT response
+POST /api/v1/auth/login
 ```
 ## 📚 Book APIs
 ```bash
-
 # Add a new book
 POST /api/v1/books
 
 Body:
 {
-  "title": "JavaScript Guide",
-  "author": "John Doe",
-  "isbn": "123456789"
+  "title": "JavaScript Guide",   // Title of the book
+  "author": "John Doe",         // Name of the book's author
+  "isbn": "123456789"           // Unique ISBN identifier for the book
 }
 
 # Get all books
@@ -189,23 +201,41 @@ DELETE /api/v1/books/:id
 
 ### Example backend usage:
 ```bash
+// Send an email using Nodemailer transporter
 await transporter.sendMail({
+  
+  // Recipient email address (student receiving the notice)
   to: student.email,
+
+  // Subject line of the email
   subject: "Book Overdue Notice",
-  html: `<p>Your book is overdue. Please return it as soon as possible.</p>`
+
+  // HTML content of the email body
+  html: `
+    <p>Your borrowed book is now overdue.</p>
+    <p>Please return it as soon as possible to avoid penalties.</p>
+  `
 });
 ```
 
 ## 🐛 Troubleshooting
 ## ❌ Frontend not loading?
 ```bash
+# Install all frontend dependencies listed in package.json
 npm install
+
+# Start the frontend development server (Vite)
 npm run dev
 ```
 
 ## ❌ Backend not connecting to MongoDB?
 ```bash
+# Verify that your MongoDB URL is correctly set in the backend .env file
+# Example:
+# MONGO_URI=mongodb://localhost:27017/smartlibx
 Check MONGO_URI in .env
+
+# Make sure your MongoDB server is running locally or your Atlas cluster is online
 Ensure MongoDB is running
 ```
 
@@ -223,8 +253,8 @@ Ensure MongoDB is running
 ## 🚀 Deployment Guide
 ### Frontend Deployment (Netlify/Vercel)
 ```bash
-npm run build
 # Upload the dist/ folder.
+npm run build
 ```
 
 ## Backend Deployment (Render/Railway)
@@ -259,9 +289,17 @@ npm run build
 ## 👥 Team Collaboration
 ### Git Workflow
 ```bash
+# Create and switch to a new feature branch
+# Use this when you start working on a new feature or change
 git checkout -b feature/your-feature
+
+# Stage all modified files for commit
 git add .
+
+# Commit your changes with a meaningful message
 git commit -m "Added new feature"
+
+# Push your new branch to the remote repository on GitHub
 git push origin feature/your-feature
 ```
 ## Pull Requests
