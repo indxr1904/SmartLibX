@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { IoMdClose } from "react-icons/io";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -118,7 +119,7 @@ export default function Header() {
       {/* BACKDROP */}
       {openMenu && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-40 z-40"
+          className="fixed inset-0 bg-black/50 backdrop-blur bg-opacity-40 z-40"
           onClick={() => setOpenMenu(false)}
         ></div>
       )}
@@ -135,7 +136,7 @@ export default function Header() {
             className="text-3xl text-gray-700"
             onClick={() => setOpenMenu(false)}
           >
-            ✖
+            <IoMdClose />
           </button>
         </div>
 

@@ -1,6 +1,7 @@
 import { Navigate, Outlet, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import menuConfig from "./../config/menuConfig.json";
+import { IoMdClose } from "react-icons/io";
 
 export default function AdminLayout() {
   const navigate = useNavigate();
@@ -91,7 +92,7 @@ export default function AdminLayout() {
               className="lg:hidden text-xl text-gray-600"
               onClick={() => setIsOpen(false)}
             >
-              ✕
+              <IoMdClose />
             </button>
           </div>
 
@@ -173,7 +174,7 @@ export default function AdminLayout() {
       {/* DARK OVERLAY FOR MOBILE */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/40 z-30 lg:hidden"
+          className="fixed inset-0 bg-black/40 backdrop-blur z-30 lg:hidden"
           onClick={() => setIsOpen(false)}
         ></div>
       )}
