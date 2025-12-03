@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const dashboardController = require("../controllers/dashboardController");
+const dashboardController = require("./../Controllers/dashboardController");
 const authController = require("../Controllers/authController");
 
 router.use(authController.protect); // protect all routes
