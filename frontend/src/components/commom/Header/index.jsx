@@ -1,10 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
   const [openMenu, setOpenMenu] = useState(false);
+
+  const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem("userData")); // must contain role
+
+  // Auto navigate based on role when token exists
+  useEffect(() => {
+    if (token && user) {
+      if (user.role === "admin" || user.role === "librarian") {
+        navigate("/admin/dashboard");
+      } else if (user.role === "student") {
+        navigate("/student");
+      }
+    }
+  }, [token, user, navigate]);
+
+  const logoutHandler = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
 
   return (
     <>
@@ -36,6 +55,7 @@ export default function Header() {
               About
             </Link>
 
+            {/* When NOT logged in */}
             {!token ? (
               <>
                 <button
@@ -54,18 +74,29 @@ export default function Header() {
               </>
             ) : (
               <>
-                <button
-                  onClick={() => navigate("/dashboard")}
-                  className="px-4 py-2 rounded-md bg-gray-200 text-gray-800 hover:bg-gray-300 transition"
-                >
-                  Dashboard
-                </button>
+                {/* If admin or librarian */}
+                {(user?.role === "admin" || user?.role === "librarian") && (
+                  <button
+                    onClick={() => navigate("/admin/dashboard")}
+                    className="px-4 py-2 rounded-md bg-gray-200 text-gray-800 hover:bg-gray-300 transition"
+                  >
+                    Dashboard
+                  </button>
+                )}
 
+                {/* If student */}
+                {user?.role === "student" && (
+                  <button
+                    onClick={() => navigate("/student")}
+                    className="px-4 py-2 rounded-md bg-gray-200 text-gray-800 hover:bg-gray-300 transition"
+                  >
+                    Student Dashboard
+                  </button>
+                )}
+
+                {/* Logout */}
                 <button
-                  onClick={() => {
-                    localStorage.removeItem("token");
-                    navigate("/login");
-                  }}
+                  onClick={logoutHandler}
                   className="px-4 py-2 rounded-md bg-red-500 text-white hover:bg-red-600 transition"
                 >
                   Logout
@@ -126,6 +157,7 @@ export default function Header() {
             About
           </Link>
 
+          {/* When NOT logged in */}
           {!token ? (
             <>
               <button
@@ -150,20 +182,33 @@ export default function Header() {
             </>
           ) : (
             <>
-              <button
-                onClick={() => {
-                  navigate("/dashboard");
-                  setOpenMenu(false);
-                }}
-                className="px-4 py-2 rounded-md bg-gray-200 text-gray-800 hover:bg-gray-300 transition"
-              >
-                Dashboard
-              </button>
+              {(user?.role === "admin" || user?.role === "librarian") && (
+                <button
+                  onClick={() => {
+                    navigate("/admin/dashboard");
+                    setOpenMenu(false);
+                  }}
+                  className="px-4 py-2 rounded-md bg-gray-200 text-gray-800 hover:bg-gray-300 transition"
+                >
+                  Dashboard
+                </button>
+              )}
+
+              {user?.role === "student" && (
+                <button
+                  onClick={() => {
+                    navigate("/student");
+                    setOpenMenu(false);
+                  }}
+                  className="px-4 py-2 rounded-md bg-gray-200 text-gray-800 hover:bg-gray-300 transition"
+                >
+                  Student Dashboard
+                </button>
+              )}
 
               <button
                 onClick={() => {
-                  localStorage.removeItem("token");
-                  navigate("/login");
+                  logoutHandler();
                   setOpenMenu(false);
                 }}
                 className="px-4 py-2 rounded-md bg-red-500 text-white hover:bg-red-600 transition"
