@@ -140,7 +140,7 @@ export default function BookManagement() {
       </div>
 
       {/* TABLE */}
-      <div className="mt-6 bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+      <div className="mt-6 bg-white rounded-xl border border-gray-200 shadow-sm overflow-x-auto">
         <table className="w-full text-sm">
           <thead className="bg-gray-100 text-left">
             <tr>
