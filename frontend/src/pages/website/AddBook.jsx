@@ -13,7 +13,7 @@ export default function AddBook() {
   const handleAddBook = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/api/v1/books", {
+      await axios.post("https://smartlibx.onrender.com/api/v1/books", {
         title,
         author,
         isbn,

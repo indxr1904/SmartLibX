@@ -51,7 +51,7 @@ export default function BookAssignment() {
       }
 
       const res = await fetch(
-        `http://localhost:3000/api/v1/assignment/assignments/paginated?${params.toString()}`,
+        `https://smartlibx.onrender.com/api/v1/assignment/assignments/paginated?${params.toString()}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -106,7 +106,7 @@ export default function BookAssignment() {
 
       // Call backend WITHOUT ANY FILTERS
       const res = await fetch(
-        `http://localhost:3000/api/v1/assignment/assignments/paginated?page=1&limit=${limit}`,
+        `https://smartlibx.onrender.com/api/v1/assignment/assignments/paginated?page=1&limit=${limit}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -131,12 +131,15 @@ export default function BookAssignment() {
   const handleDelete = async (id) => {
     if (!confirm("Are you sure you want to delete this assignment?")) return;
     try {
-      const res = await fetch(`http://localhost:3000/api/v1/assignment/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const res = await fetch(
+        `https://smartlibx.onrender.com/api/v1/assignment/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       const json = await res.json();
       if (json.status === "success") {
         // refresh current page; if page becomes empty and page > 1, go to previous

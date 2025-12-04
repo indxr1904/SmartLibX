@@ -40,7 +40,7 @@ export default function BookManagement() {
       });
 
       const res = await fetch(
-        `http://localhost:3000/api/v1/books/paginated?${params.toString()}`
+        `https://smartlibx.onrender.com/api/v1/books/paginated?${params.toString()}`
       );
       const result = await res.json();
 
@@ -64,9 +64,12 @@ export default function BookManagement() {
     if (!confirm("Are you sure you want to delete this book?")) return;
 
     try {
-      const res = await fetch(`http://localhost:3000/api/v1/books/${id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `https://smartlibx.onrender.com/api/v1/books/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (res.ok) {
         fetchBooks(); // Reload page after deletion

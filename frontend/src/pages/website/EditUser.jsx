@@ -16,20 +16,22 @@ export default function EditUser() {
 
   /* Fetch user details */
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/v1/users/${id}`).then((res) => {
-      const user = res.data.data.docs;
-      setFirstName(user.firstname);
-      setLastName(user.lastname);
-      setEmail(user.email);
-      setRole(user.role);
-    });
+    axios
+      .get(`https://smartlibx.onrender.com/api/v1/users/${id}`)
+      .then((res) => {
+        const user = res.data.data.docs;
+        setFirstName(user.firstname);
+        setLastName(user.lastname);
+        setEmail(user.email);
+        setRole(user.role);
+      });
   }, [id]);
 
   /* Update user */
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:3000/api/v1/users/${id}`, {
+      await axios.patch(`https://smartlibx.onrender.com/api/v1/users/${id}`, {
         firstname,
         lastname,
         email,

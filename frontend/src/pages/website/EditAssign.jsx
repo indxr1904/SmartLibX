@@ -27,7 +27,7 @@ export default function EditAssign() {
     const user = JSON.parse(localStorage.getItem("userData"));
 
     axios
-      .get(`http://localhost:3000/api/v1/assignment/${id}`, {
+      .get(`https://smartlibx.onrender.com/api/v1/assignment/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
       .then((res) => {
@@ -66,7 +66,7 @@ export default function EditAssign() {
 
     try {
       await axios.patch(
-        `http://localhost:3000/api/v1/assignment/${id}`,
+        `https://smartlibx.onrender.com/api/v1/assignment/${id}`,
         {
           status: formData.status,
           returnDate: formData.returnDate || null,

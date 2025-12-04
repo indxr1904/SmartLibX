@@ -22,9 +22,12 @@ export default function BookCopies() {
     if (!confirm("Are you sure you want to delete this copy?")) return;
 
     try {
-      const res = await fetch(`http://localhost:3000/api/v1/copies/${copyId}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `https://smartlibx.onrender.com/api/v1/copies/${copyId}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (res.ok) {
         fetchCopies();
@@ -47,7 +50,7 @@ export default function BookCopies() {
   const fetchCopies = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/v1/copies/book/${id}/paginated?page=${page}&limit=${limit}`
+        `https://smartlibx.onrender.com/api/v1/copies/book/${id}/paginated?page=${page}&limit=${limit}`
       );
       const result = await res.json();
 

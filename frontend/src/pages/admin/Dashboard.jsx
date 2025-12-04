@@ -51,24 +51,30 @@ export default function Dashboard() {
         recentRes,
         categoryRes,
       ] = await Promise.all([
-        fetch("http://localhost:3000/api/v1/dashboard/stats/books", {
+        fetch("https://smartlibx.onrender.com/api/v1/dashboard/stats/books", {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        fetch("http://localhost:3000/api/v1/dashboard/stats/users", {
+        fetch("https://smartlibx.onrender.com/api/v1/dashboard/stats/users", {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        fetch("http://localhost:3000/api/v1/dashboard/stats/issued", {
+        fetch("https://smartlibx.onrender.com/api/v1/dashboard/stats/issued", {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        fetch("http://localhost:3000/api/v1/dashboard/stats/overdue", {
+        fetch("https://smartlibx.onrender.com/api/v1/dashboard/stats/overdue", {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        fetch("http://localhost:3000/api/v1/dashboard/assignments/recent", {
-          headers: { Authorization: `Bearer ${token}` },
-        }),
-        fetch("http://localhost:3000/api/v1/dashboard/stats/categories", {
-          headers: { Authorization: `Bearer ${token}` },
-        }),
+        fetch(
+          "https://smartlibx.onrender.com/api/v1/dashboard/assignments/recent",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        ),
+        fetch(
+          "https://smartlibx.onrender.com/api/v1/dashboard/stats/categories",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        ),
       ]);
 
       // defensive parsing

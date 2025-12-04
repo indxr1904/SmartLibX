@@ -70,7 +70,7 @@ export default function AddBookAssignment() {
     try {
       setLoadingStudent(true);
       const res = await axios.post(
-        "http://localhost:3000/api/v1/users/studentdetail",
+        "https://smartlibx.onrender.com/api/v1/users/studentdetail",
         { rollNo: value }
       );
       if (res?.data?.user) {
@@ -101,7 +101,7 @@ export default function AddBookAssignment() {
     try {
       setLoadingCopy(true);
       const res = await axios.post(
-        "http://localhost:3000/api/v1/copies/bookdetails",
+        "https://smartlibx.onrender.com/api/v1/copies/bookdetails",
         { copycode: value }
       );
       if (res.data?.status === "success" && res.data.data) {
@@ -156,7 +156,7 @@ export default function AddBookAssignment() {
       };
 
       const res = await axios.post(
-        "http://localhost:3000/api/v1/assignment",
+        "https://smartlibx.onrender.com/api/v1/assignment",
         payload,
         {
           headers: { Authorization: `Bearer ${token}` },

@@ -18,7 +18,7 @@ export default function AddUser() {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/api/v1/users/signup", {
+      await axios.post("https://smartlibx.onrender.com/api/v1/users/signup", {
         firstname,
         lastname,
         email,

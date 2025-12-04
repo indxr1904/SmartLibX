@@ -12,19 +12,21 @@ export default function EditCopy() {
 
   /* Fetch copy details */
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/v1/copies/${id}`).then((res) => {
-      const copy = res.data.data.copy;
-      setBookId(copy.bookId);
-      setCopyCode(copy.copycode);
-      setStatus(copy.status);
-    });
+    axios
+      .get(`https://smartlibx.onrender.com/api/v1/copies/${id}`)
+      .then((res) => {
+        const copy = res.data.data.copy;
+        setBookId(copy.bookId);
+        setCopyCode(copy.copycode);
+        setStatus(copy.status);
+      });
   }, [id]);
 
   /* Update Handler */
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:3000/api/v1/copies/${id}`, {
+      await axios.patch(`https://smartlibx.onrender.com/api/v1/copies/${id}`, {
         bookId,
         copycode,
         status,

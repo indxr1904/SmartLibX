@@ -9,7 +9,7 @@ export default function StudentDashboard() {
 
     const studentId = student._id;
 
-    fetch("http://localhost:3000/api/v1/assignment", {
+    fetch("https://smartlibx.onrender.com/api/v1/assignment", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

@@ -48,7 +48,7 @@ export default function AssignBook() {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/v1/users/studentdetail",
+        "https://smartlibx.onrender.com/api/v1/users/studentdetail",
         { rollNo: value }
       );
       setStudent(res.data.user);
@@ -70,7 +70,7 @@ export default function AssignBook() {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/v1/copies/bookdetails",
+        "https://smartlibx.onrender.com/api/v1/copies/bookdetails",
         { copycode: value }
       );
 
@@ -101,7 +101,7 @@ export default function AssignBook() {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/v1/assignment",
+        "https://smartlibx.onrender.com/api/v1/assignment",
         {
           bookId,
           copyId,

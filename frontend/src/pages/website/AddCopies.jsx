@@ -13,7 +13,7 @@ export default function AddCopies() {
   const handleAddCopy = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/api/v1/copies/", {
+      await axios.post("https://smartlibx.onrender.com/api/v1/copies/", {
         bookId,
         copycode,
         status,

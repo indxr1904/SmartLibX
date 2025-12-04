@@ -21,7 +21,7 @@ export default function UserManagement() {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:3000/api/v1/users/${id}`, {
+      await fetch(`https://smartlibx.onrender.com/api/v1/users/${id}`, {
         method: "DELETE",
       });
 
@@ -36,7 +36,7 @@ export default function UserManagement() {
   const fetchUsers = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3000/api/v1/users/paginated?page=${currentPage}&limit=${itemsPerPage}&search=${search}`
+        `https://smartlibx.onrender.com/api/v1/users/paginated?page=${currentPage}&limit=${itemsPerPage}&search=${search}`
       );
       const data = await res.json();
 

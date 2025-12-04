@@ -14,20 +14,22 @@ export default function EditBook() {
 
   /* Fetch book details */
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/v1/books/${id}`).then((res) => {
-      const book = res.data.data.book;
-      setTitle(book.title);
-      setAuthor(book.author);
-      setIsbn(book.isbn);
-      setCategory(book.category);
-    });
+    axios
+      .get(`https://smartlibx.onrender.com/api/v1/books/${id}`)
+      .then((res) => {
+        const book = res.data.data.book;
+        setTitle(book.title);
+        setAuthor(book.author);
+        setIsbn(book.isbn);
+        setCategory(book.category);
+      });
   }, [id]);
 
   /* Update Handler */
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:3000/api/v1/books/${id}`, {
+      await axios.patch(`https://smartlibx.onrender.com/api/v1/books/${id}`, {
         title,
         author,
         isbn,
