@@ -19,7 +19,7 @@ export default function Signup() {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/v1/users/signup",
+        "https://smartlibx.onrender.com/api/v1/users/signup",
         {
           firstname,
           lastname,
