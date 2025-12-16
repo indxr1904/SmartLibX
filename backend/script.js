@@ -21,6 +21,10 @@ if (process.env.NODE_ENV === "development") {
   script.use(morgan("dev"));
 }
 
+app.get("/", (req, res) => {
+  res.send("SmartLibX API is running");
+});
+
 script.use((req, res, next) => {
   console.log("Hello from middleware");
 
